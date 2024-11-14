@@ -6,6 +6,7 @@ import Loader from './components/Loader/Loader.jsx';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage.jsx';
 import ImageModal from './components/ImageModal/ImageModal.jsx';
 import { fetchImages } from './services/api.js';
+import { Toaster } from 'react-hot-toast';
 import './App.module.css';
 
 const App = () => {
@@ -50,6 +51,16 @@ const App = () => {
 
   return (
     <div className="App">
+      <Toaster
+        position="bottom-center"
+        reverseOrder={false}
+        toastOptions={{
+        duration: 2000,
+        style: {
+        background: '#363636',
+        color: '#fff',
+          }
+        }}/>
       <SearchBar onSubmit={handleSearch} />
       {error && <ErrorMessage message={error} />}
       <ImageGallery images={images} onImageClick={handleImageClick} />
