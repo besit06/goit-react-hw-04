@@ -14,10 +14,10 @@ const ImageModal = ({ image, onClose }) => {
   }, [onClose]);
 
   return (
-    <Modal isOpen={!!image} onRequestClose={onClose} className={s.modal}>
-      <img src={image.urls.regular} alt={image.alt_description} />
-      <p>{image.alt_description}</p>
-      <button onClick={onClose}>Close</button>
+    <Modal isOpen={!!image} onRequestClose={onClose} className={s.modal} overlayClassName={s.overlay}>
+      <img className={s.imgModal} src={image.urls.regular} alt={image.alt_description} />
+      <p className={s.discModal}>{image.alt_description}</p>
+      <button onClick={onClose} className={s.btnModal}>Close</button>
     </Modal>
   );
 };
